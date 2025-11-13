@@ -1,0 +1,11 @@
+# Copyright (c) 2025 Splitkb.com
+# SPDX-License-Identifier: MIT
+
+menuconfig SPLITKB_BATTERY_COINCELL
+    bool "Coincell battery support"
+    default $(dt_compat_enabled,$(DT_COMPAT_SPLITKB_COINCELL_VOLTAGE_DIVIDER))
+    select ADC
+    select ZMK_BATTERY
+    depends on SENSOR
+    help
+        Enable CR1632 coincell voltage divider driver for battery monitoring
